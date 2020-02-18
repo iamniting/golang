@@ -22,6 +22,30 @@ func InsertNode(root *Node, data int) *Node {
     return root
 }
 
+func InsertNodeIterative(root * Node, data int) *Node {
+    if root == nil {
+        node := &Node{data, nil, nil}
+        return node
+    }
+
+    node := root
+
+    for node != nil {
+        if node.data > data && node.left == nil {
+            node.left = &Node{data, nil, nil}
+            break
+        } else if node.data < data && node.right == nil {
+            node.right = &Node{data, nil, nil}
+            break
+        } else if node.data > data {
+            node = node.left
+        } else if node.data < data {
+            node = node.right
+        }
+    }
+    return root
+}
+
 func PreOrder(root * Node) {
     if root == nil {
         return
@@ -104,11 +128,16 @@ func SearchIterative(root * Node, data int) {
 }
 
 func main() {
-    var root *Node
-    slice := []int{50, 20, 80, 10, 30, 60, 90, 5, 15, 25, 35, 55, 65, 85, 96}
+    slice := []int{50, 20, 80, 10, 30, 60, 90, 5, 15, 25, 35, 55, 65, 85, 95}
 
-    for _, element := range slice {
-        root = InsertNode(root, element)
+    var root *Node
+    for i, element := range slice {
+        // call recursive and iterative method one by one
+        if i & 1 == 1 {
+            root = InsertNode(root, element)
+        } else {
+            root = InsertNodeIterative(root, element)
+        }
     }
 
     fmt.Println("PreOrder")
