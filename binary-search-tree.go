@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+)
 
 type Node struct {
 	data int
@@ -47,19 +49,41 @@ func PostOrder(root * Node) {
     fmt.Print(root.data, " ")
 }
 
+func LevelOrderIterative(root * Node) {
+    if root == nil {
+        return
+    }
+    var queue []*Node
+    queue = append(queue, root)
+
+    for len(queue) > 0 {
+        parent := queue[0]
+        queue = queue[1:]
+
+        fmt.Print(parent.data, " ")
+        if parent.left != nil {
+            queue = append(queue, parent.left)
+        }
+        if parent.right != nil {
+            queue = append(queue, parent.right)
+        }
+    }
+}
+
 func main() {
     var root *Node
-    root = InsertNode(root, 5)
-    root = InsertNode(root, 3)
-    root = InsertNode(root, 2)
-    root = InsertNode(root, 4)
-    root = InsertNode(root, 7)
-    root = InsertNode(root, 6)
-    root = InsertNode(root, 8)
+    slice := []int{50, 20, 80, 10, 30, 60, 90, 5, 15, 25, 35, 55, 65, 85, 96}
 
+    for _, element := range slice {
+        root = InsertNode(root, element)
+    }
+
+    fmt.Println("PreOrder")
     PreOrder(root)
-    fmt.Println()
+    fmt.Println("\n\nInOrder")
     InOrder(root)
-    fmt.Println()
+    fmt.Println("\n\nPostOrder")
     PostOrder(root)
+    fmt.Println("\n\nLevelOrder")
+    LevelOrderIterative(root)
 }
