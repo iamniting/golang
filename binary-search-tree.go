@@ -70,6 +70,39 @@ func LevelOrderIterative(root * Node) {
     }
 }
 
+func Search(root * Node, data int) bool {
+    if root == nil {
+        return false
+    } else if root.data == data {
+        return true
+    } else if root.data > data {
+        return Search(root.left, data)
+    } else if root.data < data {
+        return Search(root.right, data)
+    }
+    return false
+}
+
+func SearchIterative(root * Node, data int) {
+    if root == nil {
+        fmt.Println("Tree is empty")
+        return
+    }
+
+    var node * Node = root
+    for node != nil {
+        if data == node.data {
+            fmt.Println("Found element", data)
+            return
+        } else if data < node.data {
+            node = node.left
+        } else if data > node.data {
+            node = node.right
+        }
+    }
+    fmt.Println("Not found element", data)
+}
+
 func main() {
     var root *Node
     slice := []int{50, 20, 80, 10, 30, 60, 90, 5, 15, 25, 35, 55, 65, 85, 96}
@@ -80,10 +113,26 @@ func main() {
 
     fmt.Println("PreOrder")
     PreOrder(root)
+
     fmt.Println("\n\nInOrder")
     InOrder(root)
+
     fmt.Println("\n\nPostOrder")
     PostOrder(root)
+
     fmt.Println("\n\nLevelOrder")
     LevelOrderIterative(root)
+
+    fmt.Println("\n\nSearch")
+    res := Search(root, 5)
+    fmt.Println(5, res)
+    res = Search(root, 50)
+    fmt.Println(50, res)
+    res = Search(root, 100)
+    fmt.Println(100, res)
+
+    fmt.Println("\nSearch Iterative")
+    SearchIterative(root, 5)
+    SearchIterative(root, 50)
+    SearchIterative(root, 100)
 }
