@@ -142,6 +142,26 @@ func InOrder(root * Node) {
     InOrder(root.right)
 }
 
+func InOrderIterative(root * Node) {
+    if root == nil {
+        return
+    }
+    var stack []*Node
+    var node *Node = root
+
+    for node != nil || len(stack) > 0 {
+        if node != nil {
+            stack = append(stack, node)
+            node = node.left
+        } else if node == nil {
+            node = stack[len(stack) - 1]
+            stack = stack[:len(stack) - 1]
+            fmt.Print(node.data, " ")
+            node = node.right
+        }
+    }
+}
+
 func PostOrder(root * Node) {
     if root == nil {
         return
@@ -223,6 +243,8 @@ func main() {
 
     fmt.Println("\n\nInOrder")
     InOrder(root)
+    fmt.Println("\n\nInOrder Iterative Method")
+    InOrderIterative(root)
 
     fmt.Println("\n\nPostOrder")
     PostOrder(root)
