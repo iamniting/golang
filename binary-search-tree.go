@@ -133,6 +133,26 @@ func PreOrder(root * Node) {
     PreOrder(root.right)
 }
 
+func PreOrderIterative(root * Node) {
+    if root == nil {
+        return
+    }
+    var stack []*Node
+    var node *Node = root
+
+    for node != nil || len(stack) > 0 {
+        if node != nil {
+            fmt.Print(node.data, " ")
+            stack = append(stack, node)
+            node = node.left
+        } else if node == nil {
+            node = stack[len(stack) - 1]
+            stack = stack[:len(stack) - 1]
+            node = node.right
+        }
+    }
+}
+
 func InOrder(root * Node) {
     if root == nil {
         return
@@ -240,6 +260,8 @@ func main() {
 
     fmt.Println("PreOrder")
     PreOrder(root)
+    fmt.Println("\n\nPreOrder Iterative Method")
+    PreOrderIterative(root)
 
     fmt.Println("\n\nInOrder")
     InOrder(root)
