@@ -191,6 +191,30 @@ func PostOrder(root * Node) {
     fmt.Print(root.data, " ")
 }
 
+func PostOrderIterative(root * Node) {
+    if root == nil {
+        return
+    }
+    var stack1 = []*Node{root}
+    var stack2 []*Node
+    var node *Node = root
+    for len(stack1) > 0 {
+        node = stack1[len(stack1) - 1]
+        stack1 = stack1[0:len(stack1) - 1]
+        stack2 = append(stack2, node)
+        if node.left != nil {
+            stack1 = append(stack1, node.left)
+        }
+        if node.right != nil {
+            stack1 = append(stack1, node.right)
+        }
+    }
+
+    for i:=len(stack2)-1; i>=0; i-- {
+        fmt.Print(stack2[i].data, " " )
+    }
+}
+
 func LevelOrderIterative(root * Node) {
     if root == nil {
         return
@@ -270,6 +294,8 @@ func main() {
 
     fmt.Println("\n\nPostOrder")
     PostOrder(root)
+    fmt.Println("\n\nPostOrder Iterative Method")
+    PostOrderIterative(root)
 
     fmt.Println("\n\nLevelOrder")
     LevelOrderIterative(root)
