@@ -46,6 +46,41 @@ func InsertNodeIterative(root * Node, data int) *Node {
     return root
 }
 
+func DeleteNode(root * Node, data int) *Node {
+    if root == nil {
+        return root
+    } else if root.data > data {
+        root.left = DeleteNode(root.left, data)
+    } else if root.data < data {
+        root.right = DeleteNode(root.right, data)
+    // if leaf node which need to be deleted
+    } else if root.data == data && root.left == nil && root.right == nil {
+        return nil
+    // if node to be deleted having one or both child
+    } else {
+        // node with left child
+        if root.left == nil {
+            return root.right
+        // node with right child
+        } else if root.right == nil {
+            return root.left
+        }
+        
+        // get max value of left sub tree
+        max := root.left
+        for max.right != nil {
+            max = max.right
+        }
+
+        // replace root data with the max value
+        root.data = max.data
+
+        // delete max value of left sub tree
+        root.left = DeleteNode(root.left, max.data)
+    }
+    return root
+}
+
 func DeleteNodeIterative(root * Node, data int) *Node {
     node := root
     parent := root
@@ -314,12 +349,16 @@ func main() {
     SearchIterative(root, 100)
 
     fmt.Println("\nDelete")
-    DeleteNodeIterative(root, 95)
+    root = DeleteNode(root, 50)
     LevelOrderIterative(root)
     fmt.Println()
+    root = DeleteNode(root, 95)
+    LevelOrderIterative(root)
+
+    fmt.Println("\n\nDelete Iterative")
     DeleteNodeIterative(root, 90)
     LevelOrderIterative(root)
     fmt.Println()
-    DeleteNodeIterative(root, 50)
+    DeleteNodeIterative(root, 30)
     LevelOrderIterative(root)
 }
