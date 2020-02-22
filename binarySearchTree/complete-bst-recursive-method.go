@@ -32,8 +32,6 @@ func HeightRecursive(root * Node) int {
 }
 
 func LevelOrderRecursive(root * Node, level int) {
-    if level == 0 { return }
-
     if level == 1 && root != nil { fmt.Print(root.data, " "); return }
 
     if level == 1 && root == nil { fmt.Print("no", " "); return }
