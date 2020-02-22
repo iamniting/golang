@@ -4,7 +4,7 @@ import "fmt"
 
 func isNumberEven(n int) bool {
     // last bit will be always unset for even no
-    return true && (n & 1 == 0)
+    return (n & 1 == 0)
 }
 
 func main() {
