@@ -1,11 +1,12 @@
 // https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
+// https://leetcode.com/problems/sort-colors
 // Dutch National Flag Algorithm or 3-way Partitioning
 
 package main
 
 import "fmt"
 
-func sortArray(arr []int) []int {
+func sortArray(arr []int) {
     low := 0
     mid := 0
     high := len(arr) - 1
@@ -24,10 +25,10 @@ func sortArray(arr []int) []int {
             high--
         }
     }
-    return arr
 }
 
 func main() {
     slice := []int{2, 1, 0, 2, 2, 1, 1, 0, 1, 0, 0, 2, 1, 2, 0}
-    fmt.Println(sortArray(slice))
+    sortArray(slice)
+    fmt.Println(slice)
 }
