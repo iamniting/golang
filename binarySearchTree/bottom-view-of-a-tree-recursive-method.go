@@ -70,7 +70,7 @@ func VerticalOrder(root * Node) {
         for level := range m[ver] {
             maxLevel = int(math.Max(float64(level), float64(maxLevel)))
         }
-        fmt.Println(m[ver][maxLevel][0])
+        fmt.Println(m[ver][maxLevel][len(m[ver][maxLevel]) - 1])
     }
 }
 
