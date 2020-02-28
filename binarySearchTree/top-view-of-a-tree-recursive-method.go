@@ -39,23 +39,38 @@ func GetMinMaxVertical(root * Node, hd int) (int, int) {
     return min, max
 }
 
-func VerticalOrderRecursive(root * Node, hd int, vertical int) {
+func VerticalOrderRecursive(
+        root * Node, hd int, level int, m map[int]map[int][]int) {
+
     if root == nil { return }
 
-    if hd == vertical { fmt.Print(root.data, " "); return }
+    if _, ok := m[hd]; !ok {
+        m[hd] = map[int][]int{}
+    }
+    m[hd][level] = append(m[hd][level], root.data)
 
-    VerticalOrderRecursive(root.left, hd-1, vertical)
-    VerticalOrderRecursive(root.right, hd+1, vertical)
+    VerticalOrderRecursive(root.left, hd-1, level+1, m)
+    VerticalOrderRecursive(root.right, hd+1, level+1, m)
 }
 
 func VerticalOrder(root * Node) {
     if root == nil { return }
 
+    // map[hd][level] = slice of nodes
+    var m = map[int]map[int][]int{}
+
+    VerticalOrderRecursive(root, 0, 1, m)
+
     min, max := GetMinMaxVertical(root, 0)
 
+    // iterate the map in sorted fashion
     for ver:=min; ver<=max; ver++ {
-        VerticalOrderRecursive(root, 0, ver)
-        fmt.Println()
+        // get the minmum level for vertical
+        minLevel := 9999999
+        for level := range m[ver] {
+            minLevel = int(math.Min(float64(level), float64(minLevel)))
+        }
+        fmt.Println(m[ver][minLevel][0])
     }
 }
 
