@@ -1,4 +1,4 @@
-// https://www.geeksforgeeks.org/count-pairs-from-two-arrays-having-sum-equal-to-k/
+// https://www.geeksforgeeks.org/count-pairs-from-two-arrays-having-sum-equal-to-k
 
 package main
 
