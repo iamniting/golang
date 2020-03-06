@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/leaf-similar-trees/
+// https://leetcode.com/problems/leaf-similar-trees
 // Just sol to the problem, It does not include the I/O part
 
 func inorder(root *TreeNode, slice *[]int) {

@@ -1,11 +1,5 @@
-// https://leetcode.com/problems/find-all-duplicates-in-an-array/
-
-package main
-
-import (
-    "fmt"
-    "math"
-)
+// https://leetcode.com/problems/find-all-duplicates-in-an-array
+// Just sol to the problem, It does not include the I/O part
 
 func findDuplicates(nums []int) []int {
     res := []int{}
@@ -23,12 +17,4 @@ func findDuplicates(nums []int) []int {
     }
 
     return res
-}
-
-func main() {
-    slice := []int{4, 3, 2, 7, 8, 2, 3, 1}
-
-    res := findDuplicates(slice)
-
-    fmt.Println(res)
 }

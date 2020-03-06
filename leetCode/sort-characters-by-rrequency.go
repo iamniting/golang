@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/sort-characters-by-frequency/
+// https://leetcode.com/problems/sort-characters-by-frequency
 // Just sol to the problem, It does not include the I/O part
 
 func frequencySort(s string) string {

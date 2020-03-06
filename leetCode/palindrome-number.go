@@ -11,6 +11,5 @@ func isPalindrome(x int) bool {
         res = (res * 10) + mod
     }
 
-    if x == res {return true}
-    return false
+    return x == res
 }

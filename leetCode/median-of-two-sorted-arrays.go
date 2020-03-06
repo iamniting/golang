@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/median-of-two-sorted-arrays/
+// https://leetcode.com/problems/median-of-two-sorted-arrays
 // Just sol to the problem, It does not include the I/O part
 
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {

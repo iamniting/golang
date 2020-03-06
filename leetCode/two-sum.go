@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/two-sum/
+// https://leetcode.com/problems/two-sum
 // Just sol to the problem, It does not include the I/O part
 
 func twoSum(nums []int, target int) []int {
