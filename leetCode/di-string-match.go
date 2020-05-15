@@ -1,0 +1,18 @@
+// https://leetcode.com/problems/di-string-match
+// Just sol to the problem, It does not include the I/O part
+
+func diStringMatch(S string) []int {
+    D, I := len(S), 0
+    res := make([]int, len(S)+1)
+
+    for i, c := range S + S[len(S)-1:] {
+        if c == 'I' {
+            res[i] = I
+            I++
+        } else if c == 'D' {
+            res[i] = D
+            D--
+        }
+    }
+    return res
+}
