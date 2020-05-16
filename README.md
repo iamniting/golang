@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/iamniting/golang)](https://goreportcard.com/report/github.com/iamniting/golang)
+
 # Learning Go
 
 |  Name  | Description |
