@@ -1,14 +1,13 @@
-// https://leetcode.com/problems/number-of-1-bits
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func hammingWeight(num uint32) int {
-    res := 0
+	res := 0
 
-    for num > 0 {
-        if num & 1 == 1 {
-            res++
-        }
-        num = num >> 1
-    }
-    return res
+	for num > 0 {
+		if num&1 == 1 {
+			res++
+		}
+		num = num >> 1
+	}
+	return res
 }

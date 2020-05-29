@@ -1,29 +1,28 @@
-// https://leetcode.com/problems/valid-parentheses
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func isValid(s string) bool {
-    stack := []byte{}
+	stack := []byte{}
 
-    for _, c := range s {
+	for _, c := range s {
 
-        if c == '{' || c == '[' || c == '(' {
-            stack = append(stack, byte(c))
-            continue
-        }
+		if c == '{' || c == '[' || c == '(' {
+			stack = append(stack, byte(c))
+			continue
+		}
 
-        if len(stack) == 0 {
-            return false
-        }
+		if len(stack) == 0 {
+			return false
+		}
 
-        top := stack[len(stack) - 1]
+		top := stack[len(stack)-1]
 
-        if (c == '}' && top != '{') ||
-           (c == ']' && top != '[') ||
-           (c == ')' && top != '(') {
-            return false
-        }
-        stack = stack[:len(stack) - 1]
-    }
+		if (c == '}' && top != '{') ||
+			(c == ']' && top != '[') ||
+			(c == ')' && top != '(') {
+			return false
+		}
+		stack = stack[:len(stack)-1]
+	}
 
-    return len(stack) == 0
+	return len(stack) == 0
 }

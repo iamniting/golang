@@ -1,33 +1,35 @@
-// https://leetcode.com/problems/trapping-rain-water
 // https://www.youtube.com/watch?v=HmBbcDiJapY
-// Just sol to the problem, It does not include the I/O part
+
+package main
+
+import "math"
 
 func trap(height []int) int {
-    res := 0
+	res := 0
 
-    for i:=0; i<len(height); i++ {
-        leftMax, rightMax := height[i], height[i]
+	for i := 0; i < len(height); i++ {
+		leftMax, rightMax := height[i], height[i]
 
-        // find max building from current building to left most building
-        for j:=0; j<i; j++ {
-            leftMax = int(math.Max(float64(leftMax), float64(height[j])))
-        }
+		// find max building from current building to left most building
+		for j := 0; j < i; j++ {
+			leftMax = int(math.Max(float64(leftMax), float64(height[j])))
+		}
 
-        // find max building from current building to right most building
-        for j:=i+1; j<len(height); j++ {
-            rightMax = int(math.Max(float64(rightMax), float64(height[j])))
-        }
+		// find max building from current building to right most building
+		for j := i + 1; j < len(height); j++ {
+			rightMax = int(math.Max(float64(rightMax), float64(height[j])))
+		}
 
-        // take minimun of leftMax and rightMax, 
-        // that will be overflow value for current building
-        overFlow := int(math.Min(float64(leftMax), float64(rightMax)))
+		// take minimun of leftMax and rightMax,
+		// that will be overflow value for current building
+		overFlow := int(math.Min(float64(leftMax), float64(rightMax)))
 
-        // substract the value of building itself from overFlow 
-        // to get the waterCapacity of that building
-        waterCapacity := overFlow - height[i]
+		// substract the value of building itself from overFlow
+		// to get the waterCapacity of that building
+		waterCapacity := overFlow - height[i]
 
-        // add the waterCapacity of building in the res
-        res += waterCapacity
-    }
-    return res
+		// add the waterCapacity of building in the res
+		res += waterCapacity
+	}
+	return res
 }

@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/count-primes
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func countPrimes(n int) int {
 	var count int
@@ -11,10 +10,10 @@ func countPrimes(n int) int {
 		}
 		count++
 
-        /*
-        mark all multiples of i,
-        they are not prime, because they are divisible by i
-        */
+		/*
+		   mark all multiples of i,
+		   they are not prime, because they are divisible by i
+		*/
 		for j := i * 2; j < n; j += i {
 			notPrime[j] = true
 		}

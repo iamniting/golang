@@ -1,18 +1,19 @@
-// https://leetcode.com/problems/middle-of-the-linked-list
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func middleNode(head *ListNode) *ListNode {
 
-    slow, fast := head, head.Next
+	slow, fast := head, head.Next
 
-    for fast != nil && fast.Next != nil {
+	for fast != nil && fast.Next != nil {
 
-        slow = slow.Next
-        fast = fast.Next.Next
-    }
+		slow = slow.Next
+		fast = fast.Next.Next
+	}
 
-    // if len is odd
-    if fast == nil { return slow }
-    // if len is even
-    return slow.Next
+	// if len is odd
+	if fast == nil {
+		return slow
+	}
+	// if len is even
+	return slow.Next
 }

@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/n-ary-tree-postorder-traversal
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func postorder(root *Node) []int {
 	if root == nil {

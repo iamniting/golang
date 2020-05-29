@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/peak-index-in-a-mountain-array
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func peakIndexInMountainArray(A []int) int {
 

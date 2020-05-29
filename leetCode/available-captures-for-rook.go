@@ -1,5 +1,6 @@
-// https://leetcode.com/problems/available-captures-for-rook
-// Just sol to the problem, It does not include the I/O part
+package main
+
+import "unicode"
 
 func numRookCaptures(board [][]byte) int {
 

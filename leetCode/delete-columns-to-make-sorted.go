@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/delete-columns-to-make-sorted
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func minDeletionSize(A []string) int {
 	if A == nil {

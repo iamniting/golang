@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/find-common-characters
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func commonChars(A []string) []string {
 	res := []string{}

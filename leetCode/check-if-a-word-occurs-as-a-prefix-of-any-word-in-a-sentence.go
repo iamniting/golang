@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func isPrefixOfWord(sentence string, searchWord string) int {
 

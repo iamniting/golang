@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/n-ary-tree-preorder-traversal
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func preorder(root *Node) []int {
 	if root == nil {

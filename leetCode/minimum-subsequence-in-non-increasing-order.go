@@ -1,5 +1,6 @@
-// https://leetcode.com/problems/minimum-subsequence-in-non-increasing-order
-// Just sol to the problem, It does not include the I/O part
+package main
+
+import "sort"
 
 func minSubsequence(nums []int) []int {
 	sort.Slice(nums, func(a, b int) bool { return nums[a] > nums[b] })

@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/build-an-array-with-stack-operations
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func buildArray(target []int, n int) []string {
 	res := []string{}

@@ -1,5 +1,6 @@
-// https://leetcode.com/problems/unique-email-addresses
-// Just sol to the problem, It does not include the I/O part
+package main
+
+import "strings"
 
 func numUniqueEmails(emails []string) int {
 

@@ -1,5 +1,6 @@
-// https://leetcode.com/problems/array-partition-i
-// Just sol to the problem, It does not include the I/O part
+package main
+
+import "sort"
 
 func arrayPairSum(nums []int) int {
 	sort.Ints(nums)

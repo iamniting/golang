@@ -1,9 +1,8 @@
-// https://leetcode.com/problems/find-words-that-can-be-formed-by-characters
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func countCharacters(words []string, chars string) int {
 
-    frequency := [26]int{}
+	frequency := [26]int{}
 	for _, c := range chars {
 		frequency[c-'a']++
 	}
@@ -21,7 +20,7 @@ func countCharacters(words []string, chars string) int {
 	goodWord := 0
 	for _, word := range words {
 		if good(word, frequency) {
-            goodWord += len(word)
+			goodWord += len(word)
 		}
 	}
 	return goodWord

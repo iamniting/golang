@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func removeDuplicates(S string) string {
 

@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/sort-array-by-parity-ii
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func sortArrayByParityII(A []int) []int {
 

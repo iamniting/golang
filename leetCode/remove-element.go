@@ -1,19 +1,18 @@
-// https://leetcode.com/problems/remove-element
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func removeElement(nums []int, val int) int {
 
-    i, j := 0, len(nums) - 1
+	i, j := 0, len(nums)-1
 
-    for i <= j {
+	for i <= j {
 
-        if nums[i] == val {
-            nums[i] , nums[j] = nums[j], nums[i]
-            j--
-            continue
-        }
+		if nums[i] == val {
+			nums[i], nums[j] = nums[j], nums[i]
+			j--
+			continue
+		}
 
-        i++
-    }
-    return i
+		i++
+	}
+	return i
 }

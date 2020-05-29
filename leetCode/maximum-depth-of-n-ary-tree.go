@@ -1,5 +1,6 @@
-// https://leetcode.com/problems/maximum-depth-of-n-ary-tree
-// Just sol to the problem, It does not include the I/O part
+package main
+
+import "math"
 
 func maxDepth(root *Node) int {
 	if root == nil {

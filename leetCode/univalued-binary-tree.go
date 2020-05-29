@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/univalued-binary-tree
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func isUnivalTree(root *TreeNode) bool {
 

@@ -1,5 +1,6 @@
-// https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix
-// Just sol to the problem, It does not include the I/O part
+package main
+
+import "sort"
 
 func kWeakestRows(mat [][]int, k int) []int {
 	type strong struct {

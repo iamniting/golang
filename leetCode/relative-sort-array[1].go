@@ -1,5 +1,6 @@
-// https://leetcode.com/problems/relative-sort-array
-// Just sol to the problem, It does not include the I/O part
+package main
+
+import "sort"
 
 func relativeSortArray(arr1 []int, arr2 []int) []int {
 

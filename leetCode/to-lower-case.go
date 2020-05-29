@@ -1,14 +1,13 @@
-// https://leetcode.com/problems/to-lower-case
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func toLowerCase(str string) string {
 
-    res := ""
+	res := ""
 
-    for _, c := range str {
+	for _, c := range str {
 
-        res += string(c | ' ')
-    }
+		res += string(c | ' ')
+	}
 
-    return res
+	return res
 }

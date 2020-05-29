@@ -1,18 +1,17 @@
-// https://leetcode.com/problems/defanging-an-ip-address
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func defangIPaddr(address string) string {
 
-    res := ""
+	res := ""
 
-    for _, c := range address {
+	for _, c := range address {
 
-        if c == '.' {
-            res += "[.]"
-        } else {
-            res += string(c)
-        }
-    }
+		if c == '.' {
+			res += "[.]"
+		} else {
+			res += string(c)
+		}
+	}
 
-    return res
+	return res
 }

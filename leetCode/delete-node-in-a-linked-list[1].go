@@ -1,8 +1,7 @@
-// https://leetcode.com/problems/delete-node-in-a-linked-list
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func deleteNode(node *ListNode) {
 
-    *node = *node.Next
+	*node = *node.Next
 
 }

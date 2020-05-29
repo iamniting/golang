@@ -1,18 +1,17 @@
-// https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero
-// Just sol to the problem, It does not include the I/O part
+package main
 
-func numberOfSteps (num int) int {
+func numberOfSteps(num int) int {
 
-    res := 0
+	res := 0
 
-    for num > 0 {
-        if num & 1 == 1 {
-            num--
-        } else {
-            num >>= 1
-        }
-        res++
-    }
+	for num > 0 {
+		if num&1 == 1 {
+			num--
+		} else {
+			num >>= 1
+		}
+		res++
+	}
 
-    return res
+	return res
 }

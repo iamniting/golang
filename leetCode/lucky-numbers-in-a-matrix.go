@@ -1,5 +1,6 @@
-// https://leetcode.com/problems/lucky-numbers-in-a-matrix
-// Just sol to the problem, It does not include the I/O part
+package main
+
+import "math"
 
 func luckyNumbers(matrix [][]int) []int {
 	R, C, res := make([]int, len(matrix)), make([]int, len(matrix[0])), []int{}
@@ -21,4 +22,3 @@ func luckyNumbers(matrix [][]int) []int {
 	}
 	return res
 }
-

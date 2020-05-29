@@ -1,15 +1,16 @@
-// https://leetcode.com/problems/maximum-69-number
-// Just sol to the problem, It does not include the I/O part
+package main
 
-func maximum69Number (num int) int {
+import "strconv"
 
-    numStr := strconv.Itoa(num)
+func maximum69Number(num int) int {
 
-    for i, c := range numStr {
-        if c == '6' {
-            num, _ = strconv.Atoi(numStr[:i] + "9" + numStr[i+1:])
-            return num
-        }
-    }
-    return num
+	numStr := strconv.Itoa(num)
+
+	for i, c := range numStr {
+		if c == '6' {
+			num, _ = strconv.Atoi(numStr[:i] + "9" + numStr[i+1:])
+			return num
+		}
+	}
+	return num
 }

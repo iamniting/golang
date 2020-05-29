@@ -1,18 +1,17 @@
-// https://leetcode.com/problems/flipping-an-image
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func flipAndInvertImage(A [][]int) [][]int {
-    res := make([][]int, len(A))
+	res := make([][]int, len(A))
 
-    for i, row := range A {
-        res[i] = make([]int, len(row))
+	for i, row := range A {
+		res[i] = make([]int, len(row))
 
-        // reverse the row and flip the image
-        index := len(row) - 1
-        for _, num := range row {
-            res[i][index] = num ^ 1
-            index--
-        }
-    }
-    return res
+		// reverse the row and flip the image
+		index := len(row) - 1
+		for _, num := range row {
+			res[i][index] = num ^ 1
+			index--
+		}
+	}
+	return res
 }

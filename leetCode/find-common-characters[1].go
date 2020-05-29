@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/find-common-characters
-// Just sol to the problem, It does not include the I/O part
+package main
 
 func commonChars(A []string) []string {
 
@@ -7,7 +6,7 @@ func commonChars(A []string) []string {
 		CMN := make([]int, 26)
 
 		for _, c := range s {
-			CMN[rune(c)-'a'] += 1
+			CMN[rune(c)-'a']++
 		}
 
 		for i := 0; i < 26; i++ {
@@ -21,7 +20,7 @@ func commonChars(A []string) []string {
 	res := []string{}
 
 	for _, c := range A[0] {
-		cmn[rune(c)-'a'] += 1
+		cmn[rune(c)-'a']++
 	}
 
 	for _, s := range A[1:] {
