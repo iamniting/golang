@@ -9,9 +9,9 @@ type Node struct {
 
 func InsertAtFirst(head *Node, data int) *Node {
 	node := &Node{data, nil}
-    node.next = head
-    head = node
-    return head
+	node.next = head
+	head = node
+	return head
 }
 
 func InsertAtLast(head *Node, data int) *Node {
