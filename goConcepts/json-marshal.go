@@ -18,10 +18,13 @@ type ServiceEndpoint struct {
 }
 
 func main() {
-	svc := ServiceEndpoint{"/api/users", 1, ServicePortName{"app.user", "9000", 2}}
+	svc := ServiceEndpoint{
+		"/api/users", 1, ServicePortName{
+			"app.user", "9000", 2,
+		},
+	}
 
 	s, _ := json.MarshalIndent(svc, "", "\t")
 	fmt.Println(string(s))
 	fmt.Printf("%+v", svc)
 }
-
