@@ -24,7 +24,7 @@ func trap(height []int) int {
 		// that will be overflow value for current building
 		overFlow := int(math.Min(float64(leftMax), float64(rightMax)))
 
-		// substract the value of building itself from overFlow
+		// subtract the value of building itself from overFlow
 		// to get the waterCapacity of that building
 		waterCapacity := overFlow - height[i]
 

@@ -4,7 +4,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 
 	p1, p2 := headA, headB
 
-	// run untill they did not get meet
+	// run until they did not get meet
 	// if there is intersection they will meet at common node
 	// if there is no intersection they will meet at nil
 	for p1 != p2 {

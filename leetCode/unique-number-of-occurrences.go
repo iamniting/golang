@@ -2,7 +2,7 @@ package main
 
 func uniqueOccurrences(arr []int) bool {
 
-	// get the occurance count
+	// get the occurrence count
 	m := make(map[int]int)
 
 	for _, n := range arr {

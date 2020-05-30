@@ -11,7 +11,7 @@ func destCity(paths [][]string) string {
 	}
 
 	for _, path := range paths {
-		// start and destination city will be excatly one
+		// start and destination city will be exactly one
 		// so check for path[1] == 1
 		if m[path[1]] == 1 {
 			return path[1]

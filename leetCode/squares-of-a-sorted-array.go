@@ -15,7 +15,7 @@ func sortedSquares(A []int) []int {
 	// result array
 	res := make([]int, j+1)
 
-	// iterate both the pointer untill they meet
+	// iterate both the pointer until they meet
 	for i <= j {
 		// if left index is greater than right, then add A[i] in res
 		if math.Abs(float64(A[i])) > math.Abs(float64(A[j])) {
