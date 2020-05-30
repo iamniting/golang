@@ -18,17 +18,18 @@ func InsertAtLast(head *Node, data int) *Node {
 	if head == nil {
 		node := &Node{data, nil}
 		return node
-	} else {
-		var list *Node = head
-		for list != nil {
-			if list.next == nil {
-				node := &Node{data, nil}
-				list.next = node
-				break
-			}
-			list = list.next
-		}
 	}
+	// else
+	var list *Node = head
+	for list != nil {
+		if list.next == nil {
+			node := &Node{data, nil}
+			list.next = node
+			break
+		}
+		list = list.next
+	}
+
 	return head
 }
 

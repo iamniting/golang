@@ -8,7 +8,7 @@ func swapPairs(head *ListNode) *ListNode {
 
 	var first *ListNode = head
 	var second *ListNode = head.Next
-	var prev *ListNode = nil
+	var prev *ListNode
 
 	head = second
 

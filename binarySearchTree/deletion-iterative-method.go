@@ -87,19 +87,19 @@ func DeleteNodeIterative(root *Node, data int) *Node {
 	} else if node.left != nil && node.right != nil {
 		// get right most child of left sub tree
 		var successor *Node = node.left
-		var succ_parent *Node = node
+		var succParent *Node = node
 
 		for successor.right != nil {
-			succ_parent = successor
+			succParent = successor
 			successor = successor.right
 		}
 
-		if succ_parent == node {
+		if succParent == node {
 			node.data = successor.data
 			node.left = successor.left
 			successor = nil
-		} else if succ_parent != node {
-			succ_parent.right = successor.left
+		} else if succParent != node {
+			succParent.right = successor.left
 			successor.left = nil
 			node.data = successor.data
 		}

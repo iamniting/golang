@@ -10,13 +10,13 @@ func minSubsequence(nums []int) []int {
 		sum += n
 	}
 
-	res_sum := 0
+	resSum := 0
 	res := []int{}
 
 	for _, n := range nums {
-		res_sum += n
+		resSum += n
 		res = append(res, n)
-		if res_sum > sum-res_sum {
+		if resSum > sum-resSum {
 			break
 		}
 	}

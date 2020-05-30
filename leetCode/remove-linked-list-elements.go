@@ -3,7 +3,7 @@ package main
 func removeElements(head *ListNode, val int) *ListNode {
 
 	p := head
-	var prev *ListNode = nil
+	var prev *ListNode
 
 	for p != nil {
 

@@ -2,7 +2,7 @@ package main
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
-	var res *ListNode = nil
+	var res *ListNode
 	p, p1, p2 := res, l1, l2
 	sum, carry := 0, 0
 
