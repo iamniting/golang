@@ -29,15 +29,16 @@ func GetMinMaxVertical(root *Node, hd int) (int, int) {
 		return hd + 1, hd - 1
 	}
 
-	var min, max int
+	lmin, lmax := GetMinMaxVertical(root.left, hd-1)
+	lmin = int(math.Min(float64(lmin), float64(hd)))
+	lmax = int(math.Max(float64(lmax), float64(hd)))
 
-	min, max = GetMinMaxVertical(root.left, hd-1)
-	min = int(math.Min(float64(min), float64(hd)))
-	max = int(math.Max(float64(max), float64(hd)))
+	rmin, rmax := GetMinMaxVertical(root.right, hd+1)
+	rmin = int(math.Min(float64(rmin), float64(hd)))
+	rmax = int(math.Max(float64(rmax), float64(hd)))
 
-	max, max = GetMinMaxVertical(root.right, hd+1)
-	min = int(math.Min(float64(min), float64(hd)))
-	max = int(math.Max(float64(max), float64(hd)))
+	min := int(math.Min(float64(lmin), float64(rmin)))
+	max := int(math.Max(float64(lmax), float64(rmax)))
 
 	return min, max
 }
