@@ -1,4 +1,4 @@
-name: Test-gofmt
+name: TestGoTools
 
 on:
   push:
@@ -8,20 +8,42 @@ on:
 
 jobs:
   test:
-    name: Test 
+    name: Test
     runs-on: ubuntu-latest
-    
+
     strategy:
       fail-fast: false
       matrix:
         go: ["1.13", "1.14"]
-    
+
     steps:
     - uses: actions/setup-go@v2
       with:
         go-version: ${{ matrix.go }}
 
     - uses: actions/checkout@v2
-    - name: Check go fmt
-      run: gofmt -d -s -e */*.go
+      with:
+        fetch-depth: 0
 
+    - name: Check gofmt
+      run: |
+        output=$(gofmt -d -s -e */*.go)
+        if test -z "$output"; then
+          echo "All files are already gofmt"
+          exit 0;
+        else
+          echo "$output"
+          exit 1;
+        fi
+
+    - name: Check goling
+      run: |
+        go get -u golang.org/x/lint/golint
+        output=$(golint */*.go | grep -v unexported || true)
+        if test -z "$output"; then
+          echo "All files are already golint"
+          exit 0;
+        else
+          echo "$output"
+          exit 1;
+        fi
