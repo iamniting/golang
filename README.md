@@ -1,5 +1,5 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/iamniting/golang)](https://goreportcard.com/report/github.com/iamniting/golang)
-[![Test-gofmt](https://github.com/iamniting/golang/workflows/Test-gofmt/badge.svg)](https://github.com/iamniting/golang/actions)
+[![Test-gofmt](https://github.com/iamniting/golang/workflows/TestGoTools/badge.svg)](https://github.com/iamniting/golang/actions)
 
 # Learning Go
 
