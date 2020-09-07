@@ -5,12 +5,14 @@ import (
 	"fmt"
 )
 
+// ServicePortName struct
 type ServicePortName struct {
 	Name string
 	Port string
 	x    int
 }
 
+// ServiceEndpoint struct
 type ServiceEndpoint struct {
 	Endpoint        string
 	x               int

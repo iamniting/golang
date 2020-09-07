@@ -2,11 +2,13 @@ package main
 
 import "fmt"
 
+// Node defines link list struct
 type Node struct {
 	data int
 	next *Node
 }
 
+// InsertAtFirst insert node at front
 func InsertAtFirst(head *Node, data int) *Node {
 	node := &Node{data, nil}
 	node.next = head
@@ -14,6 +16,7 @@ func InsertAtFirst(head *Node, data int) *Node {
 	return head
 }
 
+// InsertAtLast insert node at end
 func InsertAtLast(head *Node, data int) *Node {
 	if head == nil {
 		node := &Node{data, nil}
@@ -33,6 +36,7 @@ func InsertAtLast(head *Node, data int) *Node {
 	return head
 }
 
+// PrintList prints a list
 func PrintList(head *Node) {
 	list := head
 	for list != nil {
