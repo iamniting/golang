@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func MakeMaxHeap(slice []int, i int, size int) {
+func makeMaxHeap(slice []int, i int, size int) {
 	// return back if leaf nodes
 	if i > size/2-1 {
 		return
@@ -19,28 +19,28 @@ func MakeMaxHeap(slice []int, i int, size int) {
 	if slice[lchild] > slice[rchild] && slice[lchild] > slice[i] {
 		slice[lchild], slice[i] = slice[i], slice[lchild]
 		// maintain order of sub tree as well
-		MakeMaxHeap(slice, lchild, size)
+		makeMaxHeap(slice, lchild, size)
 	} else if slice[rchild] > slice[lchild] && slice[rchild] > slice[i] {
 		slice[rchild], slice[i] = slice[i], slice[rchild]
 		// maintain order of sub tree as well
-		MakeMaxHeap(slice, rchild, size)
+		makeMaxHeap(slice, rchild, size)
 	}
 }
 
-func MaxHeap(slice []int, size int) {
+func maxHeap(slice []int, size int) {
 	for i := size / 2; i >= 0; i-- {
-		MakeMaxHeap(slice, i, size)
+		makeMaxHeap(slice, i, size)
 	}
 }
 
-func DeleteElement(slice *[]int, index int) {
+func deleteElement(slice *[]int, index int) {
 	size := len(*slice)
 	// Add last element at the index
 	(*slice)[index] = (*slice)[size-1]
 	// Remove the last element
 	*slice = (*slice)[:size-1]
 
-	MakeMaxHeap((*slice), index, size-1)
+	makeMaxHeap((*slice), index, size-1)
 }
 
 func main() {
@@ -48,12 +48,12 @@ func main() {
 	size := len(heap)
 
 	fmt.Println(heap)
-	MaxHeap(heap, size)
+	maxHeap(heap, size)
 	fmt.Println(heap)
 
 	fmt.Println()
 
 	fmt.Println(heap)
-	DeleteElement(&heap, 0)
+	deleteElement(&heap, 0)
 	fmt.Println(heap)
 }

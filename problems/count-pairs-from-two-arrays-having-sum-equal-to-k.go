@@ -4,7 +4,7 @@ package main
 
 import "fmt"
 
-func CountPairs(a1 []int, a2 []int, k int) int {
+func countPairs(a1 []int, a2 []int, k int) int {
 	res := 0
 	// create a set
 	type void struct{}
@@ -33,5 +33,5 @@ func main() {
 	var a2 = []int{1, 4, 4, 5, 7}
 	var k int = 10
 
-	fmt.Println(CountPairs(a1, a2, k))
+	fmt.Println(countPairs(a1, a2, k))
 }
