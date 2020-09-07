@@ -27,7 +27,7 @@ jobs:
 
     - name: Check gofmt
       run: |
-        output=$(gofmt -d -s -e */*.go)
+        output=$(find . -name '*.go' | xargs -n 1 gofmt -d -s -e)
         if test -z "$output"; then
           echo "All files are already gofmt"
           exit 0;
@@ -36,10 +36,10 @@ jobs:
           exit 1;
         fi
 
-    - name: Check goling
+    - name: Check golint
       run: |
         go get -u golang.org/x/lint/golint
-        output=$(golint */*.go | grep -v unexported || true)
+        output=$(find . -name '*.go' | xargs -n 1 golint)
         if test -z "$output"; then
           echo "All files are already golint"
           exit 0;
