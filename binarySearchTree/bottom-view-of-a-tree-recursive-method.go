@@ -5,12 +5,14 @@ import (
 	"math"
 )
 
+// Node defines a node of bst
 type Node struct {
 	data  int
 	left  *Node
 	right *Node
 }
 
+// InsertNodeRecursive insert a node in tree
 func InsertNodeRecursive(root *Node, data int) *Node {
 	if root == nil {
 		node := &Node{data, nil, nil}
@@ -23,6 +25,7 @@ func InsertNodeRecursive(root *Node, data int) *Node {
 	return root
 }
 
+// GetMinMaxVertical return min and max vertical in tree
 func GetMinMaxVertical(root *Node, hd int) (int, int) {
 	if root == nil {
 		return hd + 1, hd - 1
@@ -42,6 +45,7 @@ func GetMinMaxVertical(root *Node, hd int) (int, int) {
 	return min, max
 }
 
+// VerticalOrderRecursive iterate tree in vertical order
 func VerticalOrderRecursive(
 	root *Node, hd int, level int, m map[int]map[int][]int) {
 
@@ -58,6 +62,7 @@ func VerticalOrderRecursive(
 	VerticalOrderRecursive(root.right, hd+1, level+1, m)
 }
 
+// VerticalOrder iterate tree in vertical order
 func VerticalOrder(root *Node) {
 	if root == nil {
 		return

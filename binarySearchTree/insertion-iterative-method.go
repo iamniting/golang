@@ -2,12 +2,14 @@ package main
 
 import "fmt"
 
+// Node defines a node of bst
 type Node struct {
 	data  int
 	left  *Node
 	right *Node
 }
 
+// InsertNodeIterative insert a node in tree
 func InsertNodeIterative(root *Node, data int) *Node {
 	if root == nil {
 		node := &Node{data, nil, nil}
@@ -32,6 +34,7 @@ func InsertNodeIterative(root *Node, data int) *Node {
 	return root
 }
 
+// InOrderRecursive traverse tree inorder fashion
 func InOrderRecursive(root *Node) {
 	if root == nil {
 		return

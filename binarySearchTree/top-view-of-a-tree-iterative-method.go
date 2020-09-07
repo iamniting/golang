@@ -5,12 +5,14 @@ import (
 	"sort"
 )
 
+// Node defines a node of bst
 type Node struct {
 	data  int
 	left  *Node
 	right *Node
 }
 
+// InsertNodeRecursive insert a node in tree
 func InsertNodeRecursive(root *Node, data int) *Node {
 	if root == nil {
 		node := &Node{data, nil, nil}
@@ -23,6 +25,7 @@ func InsertNodeRecursive(root *Node, data int) *Node {
 	return root
 }
 
+// VerticalOrderIterative iterate tree in vertical order
 func VerticalOrderIterative(root *Node) {
 	if root == nil {
 		return

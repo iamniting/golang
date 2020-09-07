@@ -5,12 +5,14 @@ import (
 	"math"
 )
 
+// Node defines a node of bst
 type Node struct {
 	data  int
 	left  *Node
 	right *Node
 }
 
+// InsertNodeRecursive insert a node in tree
 func InsertNodeRecursive(root *Node, data int) *Node {
 	if root == nil {
 		node := &Node{data, nil, nil}
@@ -23,6 +25,7 @@ func InsertNodeRecursive(root *Node, data int) *Node {
 	return root
 }
 
+// HeightRecursive return height of node
 func HeightRecursive(root *Node) int {
 	if root == nil {
 		return 0
