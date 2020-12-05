@@ -2,9 +2,9 @@ name: TestGoTools
 
 on:
   push:
-    branches: [ master ]
+    branches: [ '*' ]
   pull_request:
-    branches: [ master ]
+    branches: [ '*' ]
 
 jobs:
   test:
@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        go: ["1.13", "1.14"]
+        go: ["1.13", "1.14", "1.15"]
 
     steps:
     - uses: actions/setup-go@v2
@@ -26,8 +26,9 @@ jobs:
         fetch-depth: 0
 
     - name: Check gofmt
+      if: ${{ always() }}
       run: |
-        output=$(find . -name '*.go' | xargs -n 1 gofmt -d -s -e)
+        output=$(gofmt -d -s -e -l .)
         if test -z "$output"; then
           echo "All files are already gofmt"
           exit 0;
@@ -37,9 +38,10 @@ jobs:
         fi
 
     - name: Check golint
+      if: ${{ always() }}
       run: |
         go get -u golang.org/x/lint/golint
-        output=$(find . -name '*.go' | xargs -n 1 golint)
+        output=$(golint ./...)
         if test -z "$output"; then
           echo "All files are already golint"
           exit 0;
@@ -47,3 +49,9 @@ jobs:
           echo "$output"
           exit 1;
         fi
+
+    - name: Check ineffassign
+      if: ${{ always() }}
+      run: |
+        go get -u github.com/gordonklaus/ineffassign
+        ineffassign ./*
