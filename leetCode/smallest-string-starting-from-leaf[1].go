@@ -26,7 +26,6 @@ func postOrder(root *TreeNode) []string {
 	right := postOrder(root.Right)
 
 	if root.Left == nil && root.Right == nil {
-		slice = append(slice, rootVal)
 		return []string{rootVal}
 	}
 

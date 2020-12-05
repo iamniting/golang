@@ -11,7 +11,7 @@ func decrypt(code []int, k int) []int {
 	start, end, sum := 1, k, 0
 
 	if k < 0 {
-		start, end, k = len(code)-(-k), len(code)-1, -k
+		start, end = len(code)-(-k), len(code)-1
 	}
 
 	for i := start; i <= end; i++ {
