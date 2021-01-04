@@ -53,5 +53,6 @@ jobs:
     - name: Check ineffassign
       if: ${{ always() }}
       run: |
-        go get -u github.com/gordonklaus/ineffassign
+        export GO111MODULE=on
+        go get github.com/gordonklaus/ineffassign@cba2d2a
         ineffassign ./*
