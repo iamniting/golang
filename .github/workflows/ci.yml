@@ -14,19 +14,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        go: ["1.13", "1.14", "1.15"]
+        go: ["1.19", "1.20"]
 
     steps:
-    - uses: actions/setup-go@v2
+    - uses: actions/setup-go@v3
       with:
         go-version: ${{ matrix.go }}
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
     - name: Check gofmt
-      if: ${{ always() }}
       run: |
         output=$(gofmt -d -s -e -l .)
         if test -z "$output"; then
@@ -38,9 +37,8 @@ jobs:
         fi
 
     - name: Check golint
-      if: ${{ always() }}
       run: |
-        go get -u golang.org/x/lint/golint
+        go install golang.org/x/lint/golint@latest
         output=$(golint ./...)
         if test -z "$output"; then
           echo "All files are already golint"
@@ -51,8 +49,6 @@ jobs:
         fi
 
     - name: Check ineffassign
-      if: ${{ always() }}
       run: |
-        export GO111MODULE=on
-        go get github.com/gordonklaus/ineffassign@cba2d2a
-        ineffassign ./*
+        go install github.com/gordonklaus/ineffassign@latest
+        GO111MODULE=off ineffassign ./...
